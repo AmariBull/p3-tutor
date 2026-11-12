@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student told the makerspace assistant they had finished laser cutter training. On Thursday they open a new chat and the assistant asks again whether they are trained. The assistant stores nothing outside its chats. What is the most accurate explanation?",
+      "options": [
+        {"id": "a", "text": "The model forgot because Monday's chat was too long for its window"},
+        {"id": "b", "text": "Monday's context ended with that chat, and nothing was saved for later"},
+        {"id": "c", "text": "The model remembers only the last few words of each earlier chat"},
+        {"id": "d", "text": "The model stored it, but a new chat cannot read old chats yet"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent request needs three model calls: two tool requests, then the final answer. The setup (system prompt, tool descriptions and the question) is 1,600 tokens. Each tool request the model writes is 100 tokens. The first tool result is 2,000 tokens and the second is 500 tokens. On each call the program sends the setup plus every earlier request and result. Counting only the input of the three calls, what is the total input?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant searches manuals by embedding similarity, meaning it finds chunks with a similar meaning to the question. A student asks about \"error code E-47\" and gets chunks about errors in general, not the one that contains E-47. Which change best targets this problem?",
+      "options": [
+        {"id": "a", "text": "Compact the conversation so the window has more free room"},
+        {"id": "b", "text": "Save each missed question in notes for use in later chats"},
+        {"id": "c", "text": "Add sub-agents so each machine has its own clean context"},
+        {"id": "d", "text": "Add keyword matching, so exact strings like E-47 are found"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A booking chat has run for 60 turns, and the context is near the budget you set. The student's goal and the decisions made so far must not be lost. Which action does this best?",
+      "options": [
+        {"id": "a", "text": "Summarize the earlier turns and continue from the summary"},
+        {"id": "b", "text": "Remove the system prompt, since the model has now seen it"},
+        {"id": "c", "text": "Send only the student's latest message on every later call"},
+        {"id": "d", "text": "Keep every turn, since a full window never lowers accuracy"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences: why would an agent working on a long task write notes to storage outside its context, instead of just relying on what is in its context?"
+    }
+  ]
+}

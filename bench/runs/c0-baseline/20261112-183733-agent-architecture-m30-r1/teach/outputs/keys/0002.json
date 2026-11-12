@@ -1,0 +1,32 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "Everything in the context is sent and processed on every request (caching changes the price, not whether the tokens count), and recall can degrade as the context grows (context rot). Option b is the tempting error that content is paid for once."
+    },
+    {
+      "id": "q2",
+      "answer": 5200,
+      "tolerance": 0.5,
+      "rationale": "Call 1 input = 2,000 + 100 = 2,100. Call 2 input = 2,100 + 100 (tool request) + 900 (tool result) = 3,100. Total = 5,200. An answer of 3,100 forgets that call 1 was also processed; 3,200 forgets the tool request is re-sent."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Keyword search such as BM25 matches the literal string, while embedding search matches meaning and can miss exact codes. Guessing from training (c) is unreliable for a specific machine's manual."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "The model keeps nothing between sessions and the context window does not carry over. Memory has to be saved to storage outside the window and loaded back into the new context. A larger window only holds a longer single session."
+    },
+    {
+      "id": "q5",
+      "answer": "context rot",
+      "accepted": ["Context rot", "context rot.", "it is called context rot", "the context rot effect"],
+      "rationale": "Context rot is the name Anthropic's context engineering post and docs use for recall accuracy falling as token count grows."
+    }
+  ]
+}

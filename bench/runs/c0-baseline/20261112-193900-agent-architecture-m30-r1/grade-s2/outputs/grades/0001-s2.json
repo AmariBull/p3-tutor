@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, the program runs it, and the result comes back. A longer prompt or a bigger model changes what one call can do, not the structure."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only writes a structured request: the tool's name plus arguments such as the laser cutter and tomorrow's date. The program around it runs check_calendar. This is a change from your first attempt, so keep hold of it."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'left to run longer, it will eventually fix the bug'. That is tempting, but the agent is getting the same failing result 40 times, so more steps add nothing new. An agent needs a stopping condition, such as a step limit, that ends the loop and reports back to a person. A bigger context window would not help either, because all 40 steps already fit."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "4 is the right number, and your count is right: three tool requests plus the final answer. The reason is off, though. The model does not run the tools. Each call ends with one request, the program runs the tool, and the result goes into the next call. So the 4 calls are the question plus the three tool results, each given to the model once."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the result goes back in as the model's next input, and the model uses it to decide its next step. The group-chat comparison works. One addition: the program adds the result to the model's context and calls the model again, because the model cannot see the result any other way."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Using the name is part of it, and the model can never see the tool's code. But the model relies on the whole description the program sends: the name, what the tool does and the parameters it takes. A name alone can mislead, for example 'check_calendar' does not say it needs a machine and a date. In your first attempt you had the full idea, so aim for that again."
+    }
+  ],
+  "summary": "You have the loop and the model's role in tool calling: the model writes a request, the program runs it and sends the result back. That is a clear improvement on your first attempt. Two things to fix. First, an agent needs a stopping condition: with the same failing result repeating, more steps will not fix it, so you need a step limit. Second, even when your count is right, say that the program runs the tools and the model never does. Next step: write the description of one makerspace tool, check_calendar, with its name, purpose and parameters, then trace a request through it, saying who does each step."
+}

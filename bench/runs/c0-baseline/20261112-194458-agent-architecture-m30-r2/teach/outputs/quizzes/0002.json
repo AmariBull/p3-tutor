@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Last week a student told your makerspace assistant that they own their own safety goggles. This week the program starts a new conversation containing only the system prompt, the tool list and the student's new question. What does the model know about last week?",
+      "options": [
+        {"id": "a", "text": "Everything said, because the model keeps every conversation it has had"},
+        {"id": "b", "text": "Only short facts such as the goggles, because those stay in the model"},
+        {"id": "c", "text": "Nothing, unless the program saved that fact and adds it to this context"},
+        {"id": "d", "text": "A summary it wrote itself, which it stores automatically between sessions"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A request starts with a 1,500-token system prompt and tool list plus a 100-token student question. The model makes two tool calls, then writes its final answer, so the model is called three times. Each tool call adds 900 tokens to the context (the request plus its result), and nothing is ever removed. Counting only input tokens, how many are sent across all three model calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your team's manuals total about 150,000 tokens, and the model you are using has a 1,000,000-token context window. Why is it still usually better to retrieve a few relevant pages than to put all the manuals in every request?",
+      "options": [
+        {"id": "a", "text": "A window that holds everything lets the model use every page equally well"},
+        {"id": "b", "text": "Every call would re-send and pay for all of it, and recall can suffer"},
+        {"id": "c", "text": "Models cannot read any text that was not retrieved by a search first"},
+        {"id": "d", "text": "A window only counts the system prompt, so the manuals would be ignored"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Midway through a long booking conversation, your assistant's context is nearly full. Name one technique that frees space while keeping what matters."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant should greet returning students with the material they last cut, for example 3 mm plywood. Which design makes this work across visits?",
+      "options": [
+        {"id": "a", "text": "Keep one conversation open forever so the model never has to forget"},
+        {"id": "b", "text": "Save a short note after each visit and load it into the next context"},
+        {"id": "c", "text": "Put every student's material in the system prompt shared by everyone"},
+        {"id": "d", "text": "Trust the model to guess each student's usual material from the name"}
+      ]
+    }
+  ]
+}

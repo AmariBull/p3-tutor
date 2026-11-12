@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    :root { --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4; --accent: #9a4517; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a; } }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Charter, Georgia, serif; line-height: 1.5; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-family: system-ui, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context and memory in an agent</h1>
+  <p>Full lesson: <a href="../lessons/0001-context-and-memory-in-an-agent.html">Lesson 1</a>.</p>
+  <h2>Where information can live</h2>
+  <table>
+    <tr><th>Place</th><th>Lasts</th><th>Makerspace example</th></tr>
+    <tr><td>Context window</td><td>One session; re-sent on every call</td><td>System prompt, tool results so far</td></tr>
+    <tr><td>Saved notes or records</td><td>Across sessions; must be loaded back</td><td>Student's training status</td></tr>
+    <tr><td>Searchable store</td><td>Permanent; only a few chunks retrieved per query</td><td>30 machine manuals</td></tr>
+    <tr><td>Live tool call</td><td>Fetched fresh each time</td><td>Calendar availability</td></tr>
+  </table>
+  <h2>Rules of thumb</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program re-sends the context.</li>
+    <li>Input tokens on call N = everything before it. Big tool results are paid for on every later call.</li>
+    <li>More context is not better: recall can fall as it grows (context rot).</li>
+    <li>Save what stays true; fetch what goes stale with a tool.</li>
+    <li>Retrieval: keyword (BM25) for exact codes, embeddings for meaning, both if possible.</li>
+    <li>Memory only helps once it is loaded into the context.</li>
+  </ul>
+  <h2>Token arithmetic</h2>
+  <p>Input of call k = input of call k-1 + the model's tool request + the tool result. Total cost of a run = sum of all calls' inputs.</p>
+</main>
+</body>
+</html>

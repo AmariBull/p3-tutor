@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 14238,
+  "stop_reason": "end_turn",
+  "session_id": "9d6e8e7b-2be6-4970-b5a3-efa4beb955fa",
+  "total_cost_usd": 0.0891237,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 16698,
+    "cache_read_input_tokens": 69997,
+    "output_tokens": 1532,
+    "output_tokens_details": {
+      "thinking_tokens": 365
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16698,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 538,
+        "cache_read_input_tokens": 30555,
+        "cache_creation_input_tokens": 598,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 598
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1532,
+      "cacheReadInputTokens": 69997,
+      "cacheCreationInputTokens": 16698,
+      "webSearchRequests": 0,
+      "costUSD": 0.0891237,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 365,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16698,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The premise isn't true: more agents don't always give better results. So the answer isn't five or ten. Start with one agent and add more only when you can name the problem a split would fix.\n\nThink of a group project. Five people on a short report spend more time handing work to each other than writing. Every handoff loses detail, and every person has to be briefed again. Agents work the same way. Each one needs its own instructions and its own context, and each one re-reads what the others found. Anthropic's engineering write-up on their multi-agent research system reports that such systems use far more tokens than a single chat, on the order of 15 times as many. With your small model budget, that cost matters most.\n\nSplitting does pay off in a few cases:\n- **Parallel, independent work:** several searches that don't depend on each other.\n- **Too much for one context:** the job overflows one agent's context window (the text it can hold at once).\n- **Very different tools or instructions:** one agent's setup would otherwise get confusing.\n\nYour assistant mostly doesn't fit those cases. Answering from manuals, checking the calendar and booking are short, sequential steps. One agent with three well-described tools can probably do all of it. Some steps may be better as a fixed workflow than as an agent at all.\n\nA good design-review answer is: \"We start with one agent, measure cost and accuracy, and split only where we see a specific failure.\"\n\nQuick question: for a request like \"Book the laser cutter Thursday, and what's the max material thickness?\", which steps depend on each other, and which could run side by side?\n\nI haven't taught multi-agent systems yet. If you want, I can make that a lesson. Context and memory should probably come first, because they decide whether one agent is enough.",
+  "ttft_ms": 2497,
+  "type": "result",
+  "duration_ms": 15525,
+  "uuid": "ce00d6f5-f5e1-4995-80b9-19a049cc55c0",
+  "ttft_stream_ms": 1904,
+  "time_to_request_ms": 664,
+  "first_content_frame_ms": 1905,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1532,
+      "cacheReadInputTokens": 69997,
+      "cacheCreationInputTokens": 16698,
+      "webSearchRequests": 0,
+      "costUSD": 0.0891237,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 365,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16698,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-23T08:28:10.998Z"
+}

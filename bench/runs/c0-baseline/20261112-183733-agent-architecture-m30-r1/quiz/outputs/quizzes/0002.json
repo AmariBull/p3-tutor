@@ -1,0 +1,62 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement correctly separates a workflow from an agent, when both are built around a language model?",
+      "options": [
+        {"id": "a", "text": "A workflow calls the model once, while an agent calls the model many times"},
+        {"id": "b", "text": "In a workflow the code sets the order of steps; in an agent the model does"},
+        {"id": "c", "text": "A workflow can use tools and an agent cannot, since agents only write text"},
+        {"id": "d", "text": "A person approves each step of a workflow, while an agent runs by itself"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A teammate writes this Python function for the makerspace assistant: it calls the model to pull the machine and date out of the student's message, then always calls check_calendar with them, then calls the model to write a reply from the result. Who owns the control flow, and is this an agent?",
+      "options": [
+        {"id": "a", "text": "The model owns it, because the model is called twice; so it is an agent"},
+        {"id": "b", "text": "The model owns it, because it writes the reply; so it is an agent"},
+        {"id": "c", "text": "The student owns it, because their message starts it; so it is a workflow"},
+        {"id": "d", "text": "The code owns it, because the steps are fixed; so it is a workflow"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate for a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Confirming a booking: check the slot is free, reserve it, then email the student, in that order every time"},
+        {"id": "b", "text": "Diagnosing a jammed 3D printer by reading several manuals, with no way to know how many lookups it needs"},
+        {"id": "c", "text": "Answering a vague question such as \"what could I build for my project?\", where the needed steps are unclear"},
+        {"id": "d", "text": "Helping a student plan a project that may need several machines, with each check depending on the last"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Your sponsor's budget covers 6,000 model calls for the semester. A fixed workflow answers each request with exactly 2 model calls. An agent version averages 5 model calls per request. How many more requests can the budget cover with the workflow than with the agent?",
+      "unit": "requests"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, why does a fixed workflow usually cost less and behave more predictably than an agent doing the same job?"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, what is the property of a task that makes an agent a better choice than a fixed workflow?"
+    }
+  ]
+}

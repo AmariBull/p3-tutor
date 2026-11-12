@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "In a workflow the developer's code decides the next step; in an agent the model decides it.",
+      "accepted": [
+        "The code decides in a workflow and the model decides in an agent.",
+        "Workflow: the programmer's fixed code path. Agent: the language model.",
+        "The program decides in a workflow; the model decides in an agent."
+      ],
+      "rationale": "The difference is who owns the control flow: a workflow follows a path the developer wrote in advance, while an agent lets the model choose its next action from what it has seen. Reversing the two, or saying the user decides, is wrong. Saying only that agents use tools is partial, because workflows can use tools too.",
+      "distractors": {}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The code fixes both steps and their order, so it is a workflow even though it calls a tool and a model. Using a tool (a) or a model (b) does not make a system an agent, and workflows routinely contain model calls (d).",
+      "distractors": {"a": "M9", "b": "M9", "d": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "The model picks each next step from the results so far, so it owns the control flow: that is an agent. The program running the tools and a step limit (a) are part of every agent loop, and offering the same tools every time (c) is not what decides the type. Running the tools is always the program's job (d).",
+      "distractors": {"a": "M9", "c": "M9", "d": "M4"}
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "When the needed checks depend on what earlier checks find, the steps cannot be listed in advance, which is where an agent pays off. The other three tasks have the same fixed steps every time, so a workflow is cheaper and more predictable.",
+      "distractors": {"a": "M8", "b": "M8", "c": "M8"}
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "An agent's flexibility costs extra model calls and makes behaviour less predictable, so under a small budget use one only where the path cannot be fixed ahead; the rest should be fixed workflows. Agents are not cost-equivalent (b), a larger model costs more per call (c), and a workflow is not better when requests vary so much that fixed steps cannot cover them (d).",
+      "distractors": {"b": "M8", "c": "M8", "d": "M10"}
+    },
+    {
+      "id": "q6",
+      "answer": "The steps and their order are known in advance, so fixed code is cheaper (fewer model calls), more predictable and easier to test than letting a model decide.",
+      "accepted": [
+        "The steps are always the same, so a workflow is cheaper and more reliable.",
+        "It never varies, so there is no need for the model to decide; a workflow costs fewer model calls.",
+        "Because the sequence is known ahead of time, a workflow is more predictable and cheaper."
+      ],
+      "rationale": "Full credit names the fixed, known sequence and at least one benefit: lower cost, predictability or ease of testing. Only saying agents are worse, with no link to the steps being known, is partial. Claiming an agent could not do it is wrong; it could, at higher cost and risk.",
+      "distractors": {}
+    }
+  ]
+}

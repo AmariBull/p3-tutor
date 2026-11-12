@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "In a workflow, code written in advance fixes the order of steps; in an agent, the model decides the next step and which tool to use, in a loop. Both can call models and tools (b is wrong), and the number of steps is not the difference (d).",
+      "distractors": {"a": "M7", "b": "M8", "d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The steps and their order never vary, so code can run them directly. That is more predictable and cheaper than letting a model decide each step. Workflows can use model calls (d), and workflows can call tools too (c).",
+      "distractors": {"b": "M9", "c": "M8", "d": "M8"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "The code decides the order (classify, search, answer) every time, so this is a workflow even though it calls the model twice and uses a search. What makes a system an agent is that the model chooses the next step, not how many model calls or tools it has.",
+      "distractors": {"a": "M10", "b": "M10", "c": "M10"}
+    },
+    {
+      "id": "q4",
+      "answer": "the model",
+      "accepted": ["model", "the language model", "the llm", "llm", "the model itself", "the ai model"],
+      "rationale": "In an agent the model chooses the next action each time around the loop; in a workflow the program's code fixes the sequence. Answering 'the code' or 'the program' reverses the two."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "An open question may need one lookup or five, and no one can write the sequence in advance, so letting the model decide the next step pays off. The other three have known, fixed steps and are better as plain code or fixed workflow steps, which is cheaper and more predictable.",
+      "distractors": {"a": "M9", "c": "M9", "d": "M9"}
+    },
+    {
+      "id": "q6",
+      "answer": 3,
+      "tolerance": 0,
+      "rationale": "The agent makes one call per tool request (4) plus one for the final answer: 5 calls. The workflow makes 2. 5 - 2 = 3 more calls, which is the extra cost of letting the model steer. An answer of 2 forgets the final-answer call."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model is stateless and has no built-in memory of earlier conversations: it only has what is in the current context. A fact from last week is available only if the program saved it and puts it into this context. Options a, b and d all assume the model or API remembers automatically.",
+      "distractors": {"a": "M3", "b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 7500,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 1,500 + 100 = 1,600. Call 2 adds 900: 2,500. Call 3 adds another 900: 3,400. Total 1,600 + 2,500 + 3,400 = 7,500. Because every call re-sends everything, an answer of 3,400 (only the last call) or 2,800 (setup plus both additions counted once) forgets that the context is re-sent on each call."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Everything in the context is re-sent and billed as input on every call, and recall tends to degrade as the context fills (context rot), so curating a few relevant pages is better even when everything fits. Option a is the misconception that a bigger window means more context is always better.",
+      "distractors": {"a": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "Compaction: summarize the conversation so far and continue from the summary.",
+      "accepted": [
+        "compaction",
+        "summarize the conversation",
+        "summarise the conversation",
+        "summarize earlier messages and continue from the summary",
+        "clear old tool results",
+        "clearing old tool results",
+        "remove old tool results from the context",
+        "save notes outside the context and drop the old messages",
+        "write notes to a file and reload them later",
+        "structured note-taking",
+        "use a sub-agent that returns a short summary"
+      ],
+      "rationale": "Any of compaction (summarize and continue), clearing old tool results, moving key facts into notes outside the context, or delegating to a sub-agent that returns a summary is correct. Answers that only say to use a bigger window or to tell the model to forget do not free space while keeping what matters."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Memory across visits is a store outside the context that the program writes to and reads from, with the relevant note put back into the new context. Keeping one conversation open (a) grows cost and hits the window limit, a shared system prompt (c) cannot hold per-student facts, and guessing (d) has no source for the fact.",
+      "distractors": {"a": "M7", "d": "M3"}
+    }
+  ]
+}

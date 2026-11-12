@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, who decides which step comes next in a workflow, and who decides it in an agent?"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In your makerspace assistant, the code always runs search_manuals on the student's question, then makes one model call that writes an answer from the top three pages. Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "An agent, because it calls a search tool and uses a language model"},
+        {"id": "b", "text": "An agent, because the model writes the final answer in its own words"},
+        {"id": "c", "text": "A workflow, because the code fixes the steps and the order they run in"},
+        {"id": "d", "text": "Neither, because a workflow cannot include any language model calls at all"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A system gives the model three tools (search_manuals, check_calendar, book_slot) and the goal \"help this student\". After each tool result, the model picks the next tool or writes its answer; the code only runs the chosen tool and stops after 10 steps. What is it?",
+      "options": [
+        {"id": "a", "text": "A workflow, because the program runs the tools and sets a step limit"},
+        {"id": "b", "text": "An agent, because the model chooses each next step from the results"},
+        {"id": "c", "text": "A workflow, because the same three tools are offered on every request"},
+        {"id": "d", "text": "Neither, because the program and not the model runs the chosen tools"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which makerspace task is the strongest candidate for an agent rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Emailing each new member the same safety checklist after they sign up"},
+        {"id": "b", "text": "Reformatting every booking confirmation into one standard calendar entry"},
+        {"id": "c", "text": "Looking up a machine's opening hours and replying with them each time"},
+        {"id": "d", "text": "Diagnosing a \"my print failed\" report where each check depends on the last"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A teammate says, \"Agents are more capable, so the whole assistant should be an agent.\" Your sponsor's model budget is small. Which reply is best?",
+      "options": [
+        {"id": "a", "text": "Flexibility costs extra model calls and predictability, so use an agent only where steps can't be fixed in advance"},
+        {"id": "b", "text": "Agreed, since an agent can do whatever a workflow does and costs about the same per request"},
+        {"id": "c", "text": "Agreed, as long as the agent uses a larger model, because a larger model removes the cost problem"},
+        {"id": "d", "text": "Disagree, because a workflow is always cheaper and better however varied the student requests are"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Booking a machine always goes: check the calendar, confirm the slot with the student, then write the booking. In one or two sentences, give a reason this part should be a fixed workflow rather than an agent."
+    }
+  ]
+}

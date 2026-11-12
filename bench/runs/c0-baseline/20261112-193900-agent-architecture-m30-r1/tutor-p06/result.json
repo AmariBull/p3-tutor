@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 17917,
+  "stop_reason": "end_turn",
+  "session_id": "bea08ab3-15f2-44b8-bb57-faef26a2e117",
+  "total_cost_usd": 0.11842840000000002,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 22774,
+    "cache_read_input_tokens": 75804,
+    "output_tokens": 1974,
+    "output_tokens_details": {
+      "thinking_tokens": 609
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22774,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 622,
+        "cache_read_input_tokens": 36365,
+        "cache_creation_input_tokens": 864,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 864
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1974,
+      "cacheReadInputTokens": 75804,
+      "cacheCreationInputTokens": 22774,
+      "webSearchRequests": 0,
+      "costUSD": 0.11842840000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 609,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22774,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's a fresh angle, with no code.\n\n**Picture a manager in a closed office.** The manager is smart but has no phone, no computer and no window. They can only write notes on paper and slide them under the door. Outside is an errand runner who does whatever the notes say.\n\nTaped inside the office is a **menu of errands**. For example: \"Check the booking calendar: give me a machine and a time, and I'll tell you if it's free.\" Another: \"Look up a page in the machine manuals: give me a topic.\"\n\nA student asks the manager, \"Can I use the laser cutter Thursday at 3?\" The manager can't know that from memory, so they read the menu and slide a note under the door: *\"Check the booking calendar: laser cutter, Thursday 3pm.\"*\n\nThe runner walks to the calendar, finds the answer, and slides a note back: *\"Booked by someone else.\"* The manager reads it and decides what to do next. They might write another note asking for 4pm. Once they have enough information, they tell the student directly.\n\nThat is tool calling:\n\n- **The model never does the action.** It only writes a request. Your program is the runner.\n- **The menu is the tool descriptions.** The manager picks errands only by reading the menu. A vague menu entry gets wrong or missing requests, which is why writing good tool descriptions is on your mission list.\n- **Results come back as plain text.** The manager treats them as the next thing to read.\n- **The loop is the repeated note passing** until the manager is done.\n\n**Where the analogy breaks:** a real manager remembers earlier notes. The model effectively gets the whole pile of notes re-read to it every time, so a longer pile costs more. That matters for your budget.\n\nQuick check: if the manager writes \"book the laser cutter\" and nothing happens, who has failed to do their job, the manager or the runner? And what would you look at first?\n\nIf you want, I can turn this into a full lesson on tool calling with a makerspace example.",
+  "ttft_ms": 1674,
+  "type": "result",
+  "duration_ms": 18377,
+  "uuid": "d73aa5b7-b9e4-40ae-a83c-f362f64d874b",
+  "ttft_stream_ms": 1100,
+  "time_to_request_ms": 231,
+  "first_content_frame_ms": 1101,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1974,
+      "cacheReadInputTokens": 75804,
+      "cacheCreationInputTokens": 22774,
+      "webSearchRequests": 0,
+      "costUSD": 0.11842840000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 609,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22774,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-23T08:28:10.998Z"
+}

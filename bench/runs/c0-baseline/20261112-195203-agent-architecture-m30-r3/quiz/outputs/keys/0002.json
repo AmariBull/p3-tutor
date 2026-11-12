@@ -1,0 +1,46 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The difference is who owns the control flow: in a workflow, code written in advance decides the next step; in an agent, the model decides it at run time. Both can use tools (a) and either can use any model size (c). Option d reverses the two.",
+      "distractors": {"a": "M7", "c": "M7", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "The model only supplies a label; the if/else in the program decides which step runs next, so the code owns the control flow and this is a workflow. Using a model to decide something inside a step does not make the system an agent (a, b), and the number of calls per path is not the test (c).",
+      "distractors": {"a": "M8", "b": "M8", "c": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "When the steps and their order are known, a fixed workflow does the job more cheaply and predictably, because no model call is spent deciding what to do next. Adaptability (b) and tool count (c) do not outweigh that when the path never varies, and agents have no two-tool limit (d).",
+      "distractors": {"b": "M9", "c": "M7", "d": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": 8,
+      "tolerance": 0,
+      "rationale": "The agent costs 7 x 2 = 14 cents and the workflow 3 x 2 = 6 cents, a difference of 8 cents per request. The extra cost comes from the model spending calls on deciding the next step."
+    },
+    {
+      "id": "q5",
+      "answer": "c",
+      "rationale": "This question has no fixed path: the assistant may need the manuals to learn which machines handle acrylic, the calendar to see what is free, and possibly more lookups, and the number and order of steps depend on what comes back. That is where a model choosing its own steps pays off. The other three requests follow a known path of one or two steps (a lookup, a booking, a cancellation) that a fixed workflow handles.",
+      "distractors": {"a": "M9", "b": "M9", "d": "M9"}
+    },
+    {
+      "id": "q6",
+      "answer": "A fixed workflow uses only the model calls the known steps need, so its cost and behavior are predictable, while an agent spends extra calls deciding what to do next.",
+      "accepted": [
+        "It is cheaper because it makes fewer model calls",
+        "Its cost is predictable because the number of model calls is fixed",
+        "An agent spends extra model calls deciding the steps, which a workflow does not need",
+        "It is cheaper and more predictable"
+      ],
+      "rationale": "Full credit names a cost or predictability benefit that follows from the code, not the model, choosing the steps: fewer or fixed model calls, lower cost, or predictable behavior. An answer that says only that a workflow is 'simpler' or 'better' without a reason is partial. An answer that says an agent cannot call tools is wrong (M7)."
+    }
+  ]
+}

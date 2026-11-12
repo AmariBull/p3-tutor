@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    @media (prefers-color-scheme: dark) { body { color: #e9e5dc; background: #171614; } a { color: #eaa77a; } }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.35rem 0.5rem; border-bottom: 1px solid #bbb; }
+    code { font-family: ui-monospace, Consolas, monospace; font-size: 0.88em; }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory.html">lesson 1</a>. Source: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a>.</p>
+
+<h2>Vocabulary</h2>
+<table>
+  <tr><th>Term</th><th>Meaning</th></tr>
+  <tr><td>Context</td><td>All tokens the model is given in one call: system prompt, tool list, messages, tool results.</td></tr>
+  <tr><td>Context window</td><td>The limit on tokens per call, input and output together.</td></tr>
+  <tr><td>Context rot</td><td>Recall gets worse as the context fills; more is not better.</td></tr>
+  <tr><td>Compaction</td><td>Summarize a near-full conversation and continue from the summary.</td></tr>
+  <tr><td>Clearing tool results</td><td>Drop old tool output from later calls.</td></tr>
+  <tr><td>Memory</td><td>A store outside the context, written and read by the program, loaded back into context to matter.</td></tr>
+  <tr><td>Structured note-taking</td><td>The agent saves notes outside the context and reads them later.</td></tr>
+  <tr><td>Retrieval</td><td>Search a large store and load only the best few chunks.</td></tr>
+  <tr><td>Pre-inference retrieval</td><td>Search runs before the model call; the program inserts the result.</td></tr>
+  <tr><td>Just-in-time retrieval</td><td>The model calls a search tool when it needs data.</td></tr>
+</table>
+
+<h2>Rules to remember</h2>
+<ul>
+  <li>The model keeps nothing between calls; the program re-sends everything each time.</li>
+  <li>Input cost of a request = sum of the input size of every model call. Each call contains all earlier steps.</li>
+  <li>Nothing carries between sessions unless the program saves it and loads it into the new context.</li>
+  <li>The model only sees what retrieval returns; test the search separately.</li>
+</ul>
+
+<h2>Cost arithmetic</h2>
+<p>Call <em>n</em> input = setup + all earlier tool requests and results. Example: setup 2,050, each step adds 1,050 &rarr; 2,050 + 3,100 + 4,150 + 5,200 = 14,500 input tokens.</p>
+
+<h2>Where does it live? (makerspace assistant)</h2>
+<table>
+  <tr><th>Fact</th><th>Home</th></tr>
+  <tr><td>Rules, tone, tool list</td><td>System prompt</td></tr>
+  <tr><td>Training status, bookings</td><td>Database the program owns</td></tr>
+  <tr><td>Soft preferences</td><td>Short notes file</td></tr>
+  <tr><td>Machine manuals</td><td>Chunked store, retrieved on demand</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 18135,
+  "stop_reason": "end_turn",
+  "session_id": "dc25431f-2fd6-40eb-816b-a87768a8dede",
+  "total_cost_usd": 0.12488859999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 23384,
+    "cache_read_input_tokens": 113066,
+    "output_tokens": 2003,
+    "output_tokens_details": {
+      "thinking_tokens": 332
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23384,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 682,
+        "cache_read_input_tokens": 37254,
+        "cache_creation_input_tokens": 585,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 585
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2003,
+      "cacheReadInputTokens": 113066,
+      "cacheCreationInputTokens": 23384,
+      "webSearchRequests": 0,
+      "costUSD": 0.12488859999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 332,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23384,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither number. The premise is the problem: more agents don't always give better results.\n\n**Why it's tempting:** a team of ten people can do more than a team of two. Agents aren't people, though. Every agent is its own loop of model calls, and each call costs tokens. Agents also have to pass information to each other, and every handoff can drop or garble something.\n\n**A concrete example.** A student asks, \"Can I use the laser cutter Friday afternoon, and what settings for 3 mm acrylic?\"\n\n- **One agent:** it has two tools, `search_manual` and `check_calendar`. It calls both and answers. That's one loop with one shared context.\n- **Split into ten agents:** a router agent, a manual agent, a calendar agent, a booking agent, a safety agent and so on. Now the router has to explain the question to each of them, and each one reads and writes its own context. The answer has to be stitched back together. You pay for every one of those model calls, and your budget is small.\n\n**The general idea.** Add structure only when a simpler setup demonstrably fails. The usual order is:\n\n1. A fixed workflow, where your code decides the steps.\n2. A single agent with good tools.\n3. Multiple agents.\n\nAnthropic's own guidance (\"Building effective agents\") says to start with the simplest option. Their write-up on building a multi-agent research system also reported that multi-agent runs used far more tokens than single-agent ones. I recall roughly 15 times a chat, but check that figure at the source before you quote it at your design review. Multiple agents tend to pay off when the work splits into independent pieces that can run in parallel, or when one context can't hold everything. Your assistant mostly does neither.\n\nSo the defensible default is one agent with three tools: manual search, calendar check and booking. Make booking a fixed, confirmed step.\n\n**Check yourself:** for the laser cutter question, which step would you make a fixed workflow rather than agent judgment? Why?\n\nIf you'd like, I can turn this into a 15-minute lesson on workflow vs. agent vs. multi-agent. It would be a good way to prepare for your design review.",
+  "ttft_ms": 2278,
+  "type": "result",
+  "duration_ms": 18533,
+  "uuid": "c871f70c-bbe4-4702-9702-f67ddd776c63",
+  "ttft_stream_ms": 2015,
+  "time_to_request_ms": 263,
+  "first_content_frame_ms": 2016,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2003,
+      "cacheReadInputTokens": 113066,
+      "cacheCreationInputTokens": 23384,
+      "webSearchRequests": 0,
+      "costUSD": 0.12488859999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 332,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23384,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-23T08:28:10.998Z"
+}

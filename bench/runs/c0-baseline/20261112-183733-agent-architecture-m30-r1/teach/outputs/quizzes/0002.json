@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "To avoid building a search tool, your team puts all 30 machine manuals (about 600,000 tokens) into the system prompt, and the model's window can hold them. Which statement about this design is most accurate?",
+      "options": [
+        {"id": "a", "text": "It works well, because the model reads every page equally and never misses details"},
+        {"id": "b", "text": "It costs nothing extra, because the manuals are only processed once at the start"},
+        {"id": "c", "text": "Every request processes them, and the model may recall details worse as context grows"},
+        {"id": "d", "text": "It cannot work at all, because a window only holds the conversation and nothing else"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's system prompt and tool definitions total 2,000 tokens, and the student's question is 100 tokens. The model is called once and replies with a tool request of 100 tokens. The program runs the tool and gets a 900-token result, then calls the model a second time, and the model writes its final answer. Counting only the input sent to the model, how many input tokens were processed across the two calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student types, \"My laser cutter shows error E-47.\" Your search tool must find the manual page that contains that exact code. Which search method is most reliable at matching the literal string E-47?",
+      "options": [
+        {"id": "a", "text": "Keyword search such as BM25, which matches the exact text of the code"},
+        {"id": "b", "text": "Embedding search alone, which matches the overall meaning of the question"},
+        {"id": "c", "text": "Letting the model guess the right page from what it learned in training"},
+        {"id": "d", "text": "Loading the first ten pages of every manual into the prompt each time"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student finishes laser cutter training in a chat with your assistant. On Wednesday the same student starts a brand-new chat. What is needed for the assistant to know about Monday's training?",
+      "options": [
+        {"id": "a", "text": "Nothing; the model updates itself from Monday's chat and keeps the training"},
+        {"id": "b", "text": "Nothing; the context window carries over automatically from one chat to the next"},
+        {"id": "c", "text": "A model with a larger context window, which will hold Monday's chat for longer"},
+        {"id": "d", "text": "Your program saved a record on Monday and loads it into Wednesday's context"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "What name is given to the effect where a model's accuracy at recalling information from its context tends to fall as the number of tokens in the context grows?"
+    }
+  ]
+}

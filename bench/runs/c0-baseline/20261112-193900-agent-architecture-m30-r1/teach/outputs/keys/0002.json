@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls or sessions; it sees only its current context. With nothing saved and re-loaded, Monday's chat does not exist for it. Options a and c show the misconception that the model automatically remembers earlier conversations (M3).",
+      "distractors": {"a": "M3", "c": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 16000,
+      "tolerance": 0,
+      "rationale": "The contexts sent are 1,000, then 3,000, then 5,000, then 7,000 tokens, and 1,000 + 3,000 + 5,000 + 7,000 = 16,000. Answering 7,000 counts only the final context and misses that the transcript is re-sent whole on every call."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Retrieval searches the manual and adds only the best-matching chunks, keeping the context small and relevant. Sending everything (b) costs tokens each call and can hurt recall; the model's training does not hold this machine's manual (c); a fixed sample (d) will not contain the needed page.",
+      "distractors": {"b": "M7", "c": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "A student's training or certification status; the program loads it from storage (a database or notes file) at session start, or a tool reads it, and puts it into the new context.",
+      "accepted": [
+        "Training status, loaded from a database into the context at the start of the session",
+        "Student preferences or past bookings, stored outside the model and read back into the context in the next session"
+      ],
+      "rationale": "Full credit needs both a suitable item (small, personal, needed later, not available elsewhere) and the load step: saved text is put back into the new context. Naming an item without saying how it returns is partial. Saying the model remembers or learns it is wrong (M3)."
+    },
+    {
+      "id": "q5",
+      "answer": "Every token is billed on every call, so it costs more; and a crowded context can make the model worse at using the relevant information.",
+      "accepted": [
+        "It costs more because you pay per token on each call",
+        "Too much text can reduce the model's accuracy in recalling what matters (context rot)",
+        "It raises cost and can lower quality"
+      ],
+      "rationale": "Either reason is fully correct: cost per token on every call, or degraded recall as the context grows. Saying only that it is slower or that the model gets tired is incomplete. Saying a bigger window removes any need to manage context is wrong (M7).",
+      "distractors": {}
+    }
+  ]
+}

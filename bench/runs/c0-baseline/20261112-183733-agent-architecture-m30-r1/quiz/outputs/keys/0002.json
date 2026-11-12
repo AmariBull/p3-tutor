@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The difference is who owns the control flow: in a workflow, code written by the developer fixes the order of steps; in an agent, the model decides the next step itself, in a loop. Counting model calls (a) does not separate them, because a workflow can call a model several times. Tool use (c) is not the dividing line, and human approval (d) is a different design choice.",
+      "distractors": {"a": "M7", "c": "M8", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "The code decides the order (extract, check_calendar, reply) and the model only fills each step, so the code owns the control flow and this is a workflow. Calling a model, even twice, does not make a system an agent; the model would have to choose the next step itself. Picking a or b shows M7.",
+      "distractors": {"a": "M7", "b": "M7", "c": "M8"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Booking confirmation has known steps in a fixed order every time, so code can own the flow, with fewer model calls and more predictable behavior. The other three have an unknown number or order of steps that depends on what earlier steps find, which is where an agent earns its cost.",
+      "distractors": {"b": "M9", "c": "M9", "d": "M9"}
+    },
+    {
+      "id": "q4",
+      "answer": 1800,
+      "tolerance": 0,
+      "rationale": "The workflow covers 6,000 / 2 = 3,000 requests; the agent covers 6,000 / 5 = 1,200. The difference is 3,000 - 1,200 = 1,800 requests. An answer of 3,000 or 1,200 is only one of the two counts."
+    },
+    {
+      "id": "q5",
+      "answer": "The steps are fixed in advance, so no model calls are spent deciding what to do next and the path is the same every time.",
+      "accepted": [
+        "Fewer model calls, because code sets the steps instead of the model deciding them, so cost and behavior are predictable.",
+        "The code fixes the path, so there are no extra decision calls and no surprise detours.",
+        "Because the steps are predetermined, it uses fewer model calls and always follows the same path."
+      ],
+      "rationale": "Full credit needs the idea that code fixes the steps, so the model is not called to decide the next step and the path does not vary. Saying only that agents are worse or slower is partial or wrong; saying a workflow uses a smaller model is not the reason."
+    },
+    {
+      "id": "q6",
+      "answer": "The steps cannot be known in advance: the number or order of steps depends on what earlier steps find.",
+      "accepted": [
+        "The task is open-ended, so the model must decide the steps as it goes.",
+        "The needed steps vary from request to request and depend on intermediate results.",
+        "The path cannot be fixed ahead of time."
+      ],
+      "rationale": "An agent pays off when the path is unpredictable, so the model has to choose each next step from what came back. A task that is merely hard, long or important does not need an agent if its steps are known; saying so shows M9.",
+      "distractors": {}
+    }
+  ]
+}

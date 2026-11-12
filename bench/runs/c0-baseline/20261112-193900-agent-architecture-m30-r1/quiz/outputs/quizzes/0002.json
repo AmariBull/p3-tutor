@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Control flow means the order of steps a system takes. What is the difference between an agent and a workflow, in terms of who owns the control flow?",
+      "options": [
+        {"id": "a", "text": "In a workflow the model owns it; in an agent the code owns it"},
+        {"id": "b", "text": "An agent uses tools and a workflow never calls a model at all"},
+        {"id": "c", "text": "In a workflow the code owns it; in an agent the model owns it"},
+        {"id": "d", "text": "Both let the model pick each step, but an agent has more steps"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your makerspace assistant handles this request type: a student confirms a booking, and every time the code must check the calendar, then reserve the slot, then send a confirmation email, in that order. Which design is the better choice for this part?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow, because the steps and their order are known in advance"},
+        {"id": "b", "text": "An agent, because the model can then decide each step as it goes along"},
+        {"id": "c", "text": "An agent, because only an agent is allowed to call tools like a calendar"},
+        {"id": "d", "text": "A fixed workflow, because a workflow never needs a language model at all"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A Python program always does the same three things for each question: it calls the model to classify the question, searches the manuals with that label, then calls the model again to write the answer. Which description fits this system?",
+      "options": [
+        {"id": "a", "text": "An agent, because the model is called more than once per question"},
+        {"id": "b", "text": "An agent, because it searches the manuals as one of its steps"},
+        {"id": "c", "text": "Neither, because a system with a model call in it is always an agent"},
+        {"id": "d", "text": "A workflow, because the code fixes the order of steps, not the model"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one or two words, what decides the next step in an agent's loop, where in a fixed workflow the program's code decides it?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the strongest candidate to be an agent, rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Writing the same booking confirmation email after each booking"},
+        {"id": "b", "text": "Answering open questions that need an unknown number of manual lookups"},
+        {"id": "c", "text": "Checking the calendar for one machine and one date the student named"},
+        {"id": "d", "text": "Logging each finished booking to the team's usage spreadsheet"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "A fixed workflow answers a question with exactly 2 model calls. An agent handling the same question requests 4 tools, one per model call, and then writes its final answer in one more call. How many more model calls does the agent make than the workflow?",
+      "unit": "model calls"
+    }
+  ]
+}

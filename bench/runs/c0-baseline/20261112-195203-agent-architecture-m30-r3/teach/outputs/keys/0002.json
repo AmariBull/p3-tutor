@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A session's context is gone when it ends, and the model keeps nothing between calls or chats, so without saved notes Thursday's chat starts blank. Window length (a) is not the issue, and the model does not secretly keep fragments (c) or a store it cannot read (d); believing it remembers by itself is the misconception that memory is automatic.",
+      "distractors": {"a": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 9600,
+      "tolerance": 0,
+      "rationale": "Call 1 input is 1,600. Call 2 is 1,600 + 100 + 2,000 = 3,700. Call 3 is 3,700 + 100 + 500 = 4,300. The total is 1,600 + 3,700 + 4,300 = 9,600. Answering 4,300 counts only the final context and forgets that earlier text is re-sent on every call."
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "Embedding search matches meaning and can miss exact identifiers; a keyword method such as BM25 matches the exact string, and combining both is the recommended fix. Compaction (a), notes (b) and sub-agents (c) do not change how manual chunks are found."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Compaction summarizes the conversation and continues from the summary, keeping the goal and decisions while shedding detail. The system prompt must be sent on every call (b), the latest message alone loses the goal (c), and a full window does hurt recall and cost (d)."
+    },
+    {
+      "id": "q5",
+      "answer": "The context is limited and is lost when it is reset or the session ends; notes stored outside it persist and can be read back later.",
+      "accepted": [
+        "Because the context window is limited and can be reset, notes outside it survive and can be loaded back in.",
+        "Context disappears when the session ends or is compacted, but saved notes persist and can be re-read."
+      ],
+      "rationale": "Full credit names why the context alone is not enough (limited size, or lost at a reset or session end) and that notes persist outside it to be read back. Only saying that notes are useful, with no reason, is partial. Saying that the model remembers by itself is wrong."
+    }
+  ]
+}

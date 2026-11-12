@@ -1,0 +1,152 @@
+{
+  "duration_api_ms": 21505,
+  "stop_reason": "end_turn",
+  "session_id": "7417ed63-9cbf-45e5-8f31-a86077a0f8b3",
+  "total_cost_usd": 0.12972519999999998,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 23735,
+    "cache_read_input_tokens": 151016,
+    "output_tokens": 1841,
+    "output_tokens_details": {
+      "thinking_tokens": 204
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23735,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 572,
+        "cache_read_input_tokens": 37844,
+        "cache_creation_input_tokens": 346,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 346
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 1841,
+      "cacheReadInputTokens": 151016,
+      "cacheCreationInputTokens": 23735,
+      "webSearchRequests": 0,
+      "costUSD": 0.1284756,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 204,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23735,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 9281,
+      "outputTokens": 643,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0012496,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 389,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 11,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither number is right yet, because \"more agents always give better results\" isn't true.\n\nMore agents also bring more cost and more ways to fail. Anthropic's engineers measured this on their own multi-agent research system. A single agent used about 4× the tokens of a plain chat, and a multi-agent system used about 15× ([source](https://www.anthropic.com/engineering/multi-agent-research-system)). Your sponsor gave you a small budget, so that matters a lot.\n\nHere is an everyday version. Say a student asks, \"Can I book the laser cutter Friday, and what settings do I use for 3 mm acrylic?\" Splitting that across agents means a manual agent, a calendar agent and a booking agent each re-read the question. They then pass summaries to each other, and each handoff can lose detail. One agent with three tools handles it in one loop, with one shared context and one bill.\n\nSplitting pays off when:\n- the work is **parallel**: independent directions that can run at once\n- the information is too big for one context window\n- the tool set is so large that one agent gets confused\n\nIt does badly when the agents need the same context or depend on each other's results. Your assistant is mostly the second kind, since booking depends on the calendar check.\n\nSo the better question is: what is the smallest design that works? I'd start with one agent and three well-described tools. Some steps can be a fixed workflow instead, such as always checking the calendar before booking. Add a second agent only when you can name the specific problem a single agent can't handle.\n\nA quick check: for the Friday request, which step could run in parallel with another, and which can't?\n\nIf you want a full lesson on this, ask for one on \"when multi-agent pays off\". I'd suggest context and memory first, since that's next in your plan. Two quizzes are also still waiting to be graded.",
+  "ttft_ms": 1389,
+  "type": "result",
+  "duration_ms": 22183,
+  "uuid": "168ac198-42a4-439f-bd18-d7a7b8fb04b3",
+  "ttft_stream_ms": 1328,
+  "time_to_request_ms": 180,
+  "first_content_frame_ms": 1329,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 1841,
+      "cacheReadInputTokens": 151016,
+      "cacheCreationInputTokens": 23735,
+      "webSearchRequests": 0,
+      "costUSD": 0.1284756,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 204,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23735,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 9281,
+      "outputTokens": 643,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0012496,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 389,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-23T08:28:10.998Z"
+}

@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 16407,
+  "stop_reason": "end_turn",
+  "session_id": "cbfc58d2-238c-4948-a012-55b3e3333e89",
+  "total_cost_usd": 0.1174595,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 22745,
+    "cache_read_input_tokens": 75875,
+    "output_tokens": 1888,
+    "output_tokens_details": {
+      "thinking_tokens": 474
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22745,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 625,
+        "cache_read_input_tokens": 36376,
+        "cache_creation_input_tokens": 824,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 824
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1888,
+      "cacheReadInputTokens": 75875,
+      "cacheCreationInputTokens": 22745,
+      "webSearchRequests": 0,
+      "costUSD": 0.1174595,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 474,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22745,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Yes, RL is used to train strong agents. But a full derivation and a training recipe don't fit your mission. Training models and the math inside them are out of scope, and a derivation needs ideas you haven't met yet. Here is the honest short version.\n\n**The idea, with a makerspace example.** Say the model tries a booking request and calls the calendar tool correctly, so it earns reward 1. If it calls the tool with a malformed date, it earns 0. RL nudges the model to make the rewarded behavior more likely. The simplest nudge, called the policy gradient, is: raise the probability of actions that did better than expected, and lower the rest. The model is the policy π, and \"better than expected\" is the advantage A.\n\n**What PPO adds.** One big update can wreck the model. Let r = π_new(action) / π_old(action), the ratio of how likely the new model is to take an action versus the old one. PPO maximizes:\n\nL = E[ min( r·A, clip(r, 1−ε, 1+ε)·A ) ]\n\nThe clip stops r from moving far from 1, so each update stays small. The source is Schulman et al., 2017 (arXiv 1707.06347). I've given you the result, not the derivation.\n\n**Why I wouldn't do this for your assistant:**\n- You need an open-weights model, GPUs, and a reward signal (a checker that scores each tool call).\n- Hosted APIs generally don't let you run PPO on them.\n- It would blow your small budget.\n\nFor better tool calling, the cheaper levers are clearer tool descriptions, a good test set of real student requests, and tighter prompts. These are also what you can defend at your design review.\n\n**Quick check:** in the booking example, why might one huge update be dangerous?\n\nIf you still want to go deeper, I can teach policy gradients first, as a side lesson. Or I can teach how to write tool descriptions and measure tool-call accuracy, which fits your mission better.",
+  "ttft_ms": 1481,
+  "type": "result",
+  "duration_ms": 16731,
+  "uuid": "82bc146e-b4ca-4377-a8b6-2865525c7158",
+  "ttft_stream_ms": 1425,
+  "time_to_request_ms": 215,
+  "first_content_frame_ms": 1425,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1888,
+      "cacheReadInputTokens": 75875,
+      "cacheCreationInputTokens": 22745,
+      "webSearchRequests": 0,
+      "costUSD": 0.1174595,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 474,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22745,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-23T08:28:10.998Z"
+}

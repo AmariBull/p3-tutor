@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem; font-family: Charter, Georgia, serif; line-height: 1.5; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    a { color: #9a4517; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } a { color: #eaa77a; } }
+  </style>
+</head>
+<body>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory.html">lesson 1</a>.</p>
+  <h2>Terms</h2>
+  <table>
+    <tr><th>Term</th><th>Meaning</th></tr>
+    <tr><td>Context</td><td>All tokens the model sees on one call: system prompt, tool descriptions, conversation, tool results.</td></tr>
+    <tr><td>Context window</td><td>The most tokens the model can take in on one call.</td></tr>
+    <tr><td>Context rot</td><td>Recall gets worse as the context grows.</td></tr>
+    <tr><td>Session</td><td>One conversation; its context is gone when it ends.</td></tr>
+    <tr><td>Memory (notes)</td><td>Information saved outside the context and loaded back later.</td></tr>
+    <tr><td>Retrieval</td><td>Searching existing material (manuals) and adding only the best chunks.</td></tr>
+  </table>
+  <h2>Rules</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program re-sends earlier steps.</li>
+    <li>Cost of a request = sum of the input of every call, not the final context size.</li>
+    <li>Trim: clear old tool results; compact into a summary.</li>
+    <li>Where information lives: about a student, learned earlier &rarr; notes. Changes often &rarr; tool call. In the manuals &rarr; retrieval. Needed for this chat &rarr; context.</li>
+    <li>Search by meaning (embeddings) plus exact terms (BM25).</li>
+    <li>If all manuals fit in about 200,000 tokens, you may not need retrieval.</li>
+  </ul>
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering</a></li>
+    <li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Memory tool</a></li>
+    <li><a href="https://anthropic.com/research/contextual-retrieval">Contextual Retrieval</a></li>
+  </ul>
+</body>
+</html>

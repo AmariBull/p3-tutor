@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chatted with your assistant on Monday and was told the drill press needs a safety check. On Wednesday they open a new chat and ask, \"What did you say about the drill press?\" The program saved nothing from Monday. What happens?",
+      "options": [
+        {"id": "a", "text": "The model recalls Monday's chat because it keeps what it has seen"},
+        {"id": "b", "text": "The model has no record of Monday, since each new context starts empty"},
+        {"id": "c", "text": "The model recalls it, since chats are stored in the model's weights"},
+        {"id": "d", "text": "The model finds Monday's chat by searching the manuals for the question"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In one agent run, the fixed instructions and question total 1,000 tokens. Each of three tool results adds 2,000 tokens to the transcript, and the model is called after the question and after each result (four calls). The full transcript is re-sent on every call and nothing is removed. How many input tokens are billed across the four calls in total? Ignore the model's own replies.",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your team's 400-page laser cutter manual is far too large to send on every call. A student asks for the focus distance for 6 mm plywood. Which design is best?",
+      "options": [
+        {"id": "a", "text": "Search the manual and add only the few best-matching chunks"},
+        {"id": "b", "text": "Send the whole manual and trust the model to ignore the rest"},
+        {"id": "c", "text": "Ask the model to recall the focus distance from its training"},
+        {"id": "d", "text": "Send only the manual's first ten pages as a representative sample"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Name one kind of information in the makerspace assistant that should be saved between sessions, and in one sentence say how it gets back in front of the model in a new session."
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, give one reason why filling a very large context window on every call is a poor default, beyond the window's size limit."
+    }
+  ]
+}

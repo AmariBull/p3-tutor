@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt or a bigger model only changes what a single call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only writes a structured request: the tool's name plus arguments such as the laser cutter and tomorrow's date. The program around it runs check_calendar and returns the result."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'no change; it will eventually fix the bug'. That is tempting because more attempts feel like more progress. But here the agent gets the same failing result every time, so step 41 will look like step 40. The program needs a stopping condition, such as a step limit that ends the loop and reports back to a person. A larger context window would not help, because all 40 steps already fit."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is right: three tool requests plus the final answer. Your reason is off, though. The model does not run any tool. In each call it only requests one, and the program runs it and sends the result back. So the 4 calls are the question plus the three tool results, each one fed to the model. Keep that split in mind: the model asks, the program acts."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and you gave both parts: the result goes back in as the next input, and the model uses it to decide what to do next. The group-chat picture fits, since the result is a new message in the conversation the model reads before it takes its turn."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You are on the right track: the model does rely on what it is told about a tool, not on its code. But the name alone is not enough. The model reads the whole description the program gives it: the name, what the tool does, and the parameters it takes. A name like check_calendar is a good hint, but two tools with vague names would be easy to mix up. This is why writing clear tool descriptions matters for your assistant."
+    }
+  ],
+  "summary": "You have the loop itself down: you got q1, q2 and q5 right, and your count of 4 model calls in q4 is right. Two things to work on. First, the model never runs a tool; it only requests one, and the program runs it. Your q4 reasoning still blurred that line. Second, a loop needs a stopping condition even when the agent looks like it could eventually succeed (q3). The model also chooses tools from their full descriptions, not just their names (q6). Next step: take one makerspace request, such as booking a laser cutter, and write out each step as 'model asks' or 'program does', then add a step limit and say what the assistant reports when it hits it."
+}

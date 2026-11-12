@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 24279,
+  "stop_reason": "end_turn",
+  "session_id": "8fca66c3-1979-4c3a-82ad-c461d215efbd",
+  "total_cost_usd": 0.14027130000000002,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 25140,
+    "cache_read_input_tokens": 151713,
+    "output_tokens": 2452,
+    "output_tokens_details": {
+      "thinking_tokens": 804
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 25140,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 630,
+        "cache_read_input_tokens": 38782,
+        "cache_creation_input_tokens": 813,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 813
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 2452,
+      "cacheReadInputTokens": 151713,
+      "cacheCreationInputTokens": 25140,
+      "webSearchRequests": 0,
+      "costUSD": 0.14027130000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 804,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25140,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 11,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's a different angle from the loop diagram: a **manager who can't leave a locked office**.\n\nPicture a manager who is very smart and can read and write notes. They can't leave the room, and they can't phone anyone. Outside the door sits an assistant who can walk anywhere in the building.\n\nOn the manager's desk is a **menu of errands**. Each line has a name and a plain description. For example: \"Check the sign-up sheet: tell me a day, and I'll tell you who's signed up.\" The manager has never seen how the assistant does any of these. They only see the menu.\n\nSay someone slips a question under the door. The manager can't answer from memory, so they write a note: \"Errand: check the sign-up sheet. Day: Friday.\" That note is the **tool call**. It's only a request, and nothing has happened yet.\n\nThe assistant reads the note, walks to the sheet, copies what it says, and slides that under the door. The manager reads it and then does one of two things: write another errand note, or write the final answer to the person who asked. The assistant runs each errand. The manager only asks for it and reads what comes back.\n\nWhere the analogy breaks: a real model doesn't remember the last note. Each time, the assistant hands the manager the whole stack of papers so far, and the manager starts fresh from that. That's why each round trip costs something, and it ties into your budget.\n\nSo tool calling is three parts:\n- The **menu** is the tool descriptions. The manager picks errands from these.\n- The **note** is the model's request. It names the errand and fills in the details.\n- The **assistant** is your program. It does the errand and returns the result.\n\nI kept this away from quiz 0001, which is still ungraded, so I haven't matched it to those questions. Grading it would show me exactly which part is still fuzzy.\n\nQuick check: in your own words, who decides which errand to ask for, and who actually does it?\n\nIf you want, I can write a full lesson on tool calling next, or grade quiz 0001 first.",
+  "ttft_ms": 2102,
+  "type": "result",
+  "duration_ms": 24676,
+  "uuid": "62f84940-5af0-41c8-be0c-bbc6a9221153",
+  "ttft_stream_ms": 1756,
+  "time_to_request_ms": 235,
+  "first_content_frame_ms": 1756,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 2452,
+      "cacheReadInputTokens": 151713,
+      "cacheCreationInputTokens": 25140,
+      "webSearchRequests": 0,
+      "costUSD": 0.14027130000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 804,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25140,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-23T08:28:10.998Z"
+}
